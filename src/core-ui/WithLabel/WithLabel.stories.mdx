@@ -1,0 +1,15 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { WithLabel } from "./WithLabel";
+import { FormInput } from "../Input/FormInput/FormInput";
+
+<Meta title="Decorators/WithLabel" />
+
+# WithLabel
+
+Decorator to add a label to inputs
+
+<Story name="default">
+    <WithLabel label="Some input">
+        <FormInput />
+    </WithLabel>
+</Story>

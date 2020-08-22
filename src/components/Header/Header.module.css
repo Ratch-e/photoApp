@@ -1,0 +1,32 @@
+.header {
+    background-color: var(--accentColor1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.actionsPanel {
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.mainButton {
+    background-color: var(--accentColor2);
+    color: var(--textLight);
+    text-transform: uppercase;
+    transition: all 0.15s ease-in-out;
+    margin-left: 10px;
+    font-size: 20px;
+    height: 60px;
+    padding: 0 40px;
+}
+
+.mainButton:active {
+    box-shadow: inset 2px 0 2px 0 #00000050;
+    background-color: var(--accentColor2Darker);
+}

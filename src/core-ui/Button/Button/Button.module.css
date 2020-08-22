@@ -1,0 +1,19 @@
+.button {
+    padding: 15px 30px;
+    border-radius: 15px;
+    background-color: var(--accentColor1);
+    border: 2px solid var(--accentColor1Darker);
+    transition: all 0.15s ease-in-out;
+}
+
+.button:hover {
+    background-color: var(--accentColor1Brighter);
+}
+
+.button:active {
+    background-color: var(--accentColor1Darker);
+}
+
+.button:focus {
+    box-shadow: var(--focus);
+}

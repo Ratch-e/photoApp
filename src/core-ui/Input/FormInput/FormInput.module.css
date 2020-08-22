@@ -1,0 +1,22 @@
+.input {
+    padding: 15px;
+    border: var(--border);
+    border-radius: 15px;
+    font-size: 18px;
+    color: var(--textGray);
+    transition: box-shadow 0.15s ease-in-out;
+    background-color: var(--inputsBG);
+}
+
+.input::placeholder {
+    color: var(--placeholder);
+}
+
+.input:focus {
+    box-shadow: var(--focus);
+}
+
+.input[disabled] {
+    background-color: var(--disabled);
+    cursor: not-allowed;
+}

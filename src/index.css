@@ -1,13 +1,40 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "./variables.css";
+
+@font-face {
+    font-family: "NotoSans";
+    src: url("./assets/fonts/noto/NotoSans-Regular.ttf") format("ttf"),
+        url("./assets/fonts/noto/NotoSans-Regular.woff") format("woff");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+    font-family: "NotoSans";
+    src: url("./assets/fonts/noto/NotoSans-Bold.ttf") format("ttf"),
+        url("./assets/fonts/noto/NotoSans-Bold.woff") format("woff");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "NotoSans";
+    src: url("./assets/fonts/noto/NotoSans-Italic.ttf") format("ttf"),
+        url("./assets/fonts/noto/NotoSans-Italic.woff") format("woff");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "NotoSans";
+    src: url("./assets/fonts/noto/NotoSans-BoldItalic.ttf") format("ttf"),
+        url("./assets/fonts/noto/NotoSans-BoldItalic.woff") format("woff");
+    font-style: italic;
+    font-weight: bold;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "NotoSans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

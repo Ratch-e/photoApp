@@ -1,0 +1,21 @@
+.page {
+    min-height: calc(100vh - 60px);
+    background: linear-gradient(
+        45deg,
+        #dfdfdd,
+        #eeeeec 40%,
+        #eeeeec 60%,
+        #e9e9e7 100%
+    );
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.row {
+    margin-bottom: 20px;
+}

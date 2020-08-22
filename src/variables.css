@@ -1,0 +1,21 @@
+:root {
+    /* palette */
+    --accentColor1: #efdb25;
+    --accentColor1Darker: #d3c22b;
+    --accentColor1Brighter: #f3e34e;
+    --accentColor2: #2f7bed;
+    --accentColor2Darker: #256dd8;
+    --accentColor2Brighter: #3680ee;
+
+    /* forms */
+    --border: 1px solid #555555;
+    --inputsBG: #f7f7f7;
+    --disabled: #e4e2e2;
+    --placeholder: #b4b4b4;
+    --focus: 0 0 4px 0 var(--accentColor2Darker);
+
+    /* textColors */
+    --textLight: #ffffff;
+    --textDark: #000000;
+    --textGray: #555555;
+}
