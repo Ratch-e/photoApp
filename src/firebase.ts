@@ -1,6 +1,7 @@
 import * as fb from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
+import "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBrLbPfxVKAqEhLxT8ggyekp0ezm7vHAZI",
@@ -13,4 +14,11 @@ const firebaseConfig = {
     measurementId: "G-X1MRS81GH1",
 };
 
-export const firebase = fb.initializeApp(firebaseConfig);
+const firebase = fb.initializeApp(firebaseConfig);
+
+const GAProvider = new fb.auth.GoogleAuthProvider();
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
+export const loginWithGoogle = () => auth.signInWithPopup(GAProvider);

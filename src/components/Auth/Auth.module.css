@@ -1,0 +1,41 @@
+.page {
+    min-height: calc(100vh - 60px);
+    background: linear-gradient(
+        45deg,
+        #dfdfdd,
+        #eeeeec 40%,
+        #eeeeec 60%,
+        #e9e9e7 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    margin: 0 auto;
+}
+
+.row {
+    margin-bottom: 20px;
+    width: 450px;
+}
+
+.section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.link {
+    margin-left: 10px;
+}
