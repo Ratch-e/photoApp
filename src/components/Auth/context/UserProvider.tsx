@@ -1,5 +1,5 @@
 import * as React from "react";
-import { auth } from "../../../firebase";
+import { auth, generateUserDocument } from "../../../firebase";
 import { UserContext } from "./userContext";
 
 export const UserProvider = ({
@@ -8,8 +8,11 @@ export const UserProvider = ({
     const [user, setUser] = React.useState<firebase.User | null>(null);
 
     React.useEffect(() => {
-        auth.onAuthStateChanged((newUser) => {
-            setUser(newUser);
+        auth.onAuthStateChanged(async (newUser) => {
+            if (newUser) {
+                const updatedUser = await generateUserDocument(newUser);
+                setUser(updatedUser);
+            }
         });
     }, []);
 

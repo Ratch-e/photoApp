@@ -7,13 +7,27 @@ import { FormInput } from "../../core-ui/Input/FormInput/FormInput";
 import { Button } from "../../core-ui/Button/Button/Button";
 import { BUTTON_TYPE } from "../../core-ui/Button/constants";
 import { ROUTES } from "../../constants";
-import { loginWithGoogle } from "../../firebase";
+import { auth, loginWithGoogle } from "../../firebase";
 
 import styles from "./Auth.module.css";
 
+interface LoginCredentials {
+    email: string;
+    password: string;
+}
+
 export const Login = () => {
-    const onSubmit = (data: unknown) => console.log(data);
     const history = useHistory();
+
+    const onSubmit = async ({ email, password }: LoginCredentials) => {
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            history.push(ROUTES.HOME);
+        } catch (error) {
+            // TODO: should be an error notification
+            console.error(error);
+        }
+    };
 
     const onLoginWithGoogle = async () => {
         await loginWithGoogle();

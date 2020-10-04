@@ -8,18 +8,44 @@ import { FormInput } from "../../core-ui/Input/FormInput/FormInput";
 import { Button } from "../../core-ui/Button/Button/Button";
 import { BUTTON_TYPE } from "../../core-ui/Button/constants";
 import { ROUTES } from "../../constants";
-import { loginWithGoogle } from "../../firebase";
+import { auth, generateUserDocument, loginWithGoogle } from "../../firebase";
 
 import styles from "./Auth.module.css";
 
+interface NewUserCredentials {
+    username: string;
+    email: string;
+    password: string;
+}
+
 export const Signup = () => {
-    const onSubmit = (data: unknown) => console.log(data);
     const history = useHistory();
+
+    const onSubmit = async ({
+        email,
+        username,
+        password,
+    }: NewUserCredentials) => {
+        try {
+            const { user } = await auth.createUserWithEmailAndPassword(
+                email,
+                password
+            );
+            if (user) {
+                generateUserDocument(user, { displayName: username });
+                history.push(ROUTES.HOME);
+            }
+        } catch (error) {
+            // TODO: should be an error notification
+            console.error(error);
+        }
+    };
 
     const onLoginWithGoogle = async () => {
         await loginWithGoogle();
         history.push(ROUTES.HOME);
     };
+
     return (
         <section className={styles.page}>
             <Form
@@ -69,7 +95,7 @@ export const Signup = () => {
                                 className={styles.button}
                                 type={BUTTON_TYPE.SUBMIT}
                             >
-                                Submit
+                                Create
                             </Button>
                         </form>
                     );
