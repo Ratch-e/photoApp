@@ -41,14 +41,15 @@ export const Login = () => {
                 render={({ handleSubmit }) => {
                     return (
                         <form className={styles.form} onSubmit={handleSubmit}>
-                            <WithLabel label="Name" className={styles.row}>
+                            <WithLabel label="Email" className={styles.row}>
                                 <Field
-                                    name="username"
+                                    name="email"
                                     render={({ input }) => (
                                         <FormInput
+                                            type="email"
                                             value={input.value}
                                             onChange={input.onChange}
-                                            placeholder="Input your name or email"
+                                            placeholder="Input your email"
                                         />
                                     )}
                                 />

@@ -12,6 +12,8 @@ export const UserProvider = ({
             if (newUser) {
                 const updatedUser = await generateUserDocument(newUser);
                 setUser(updatedUser);
+            } else {
+                setUser(null);
             }
         });
     }, []);
