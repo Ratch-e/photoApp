@@ -16,6 +16,10 @@
     box-shadow: var(--focus);
 }
 
+.error {
+    color: var(--error);
+}
+
 .input[disabled] {
     background-color: var(--disabled);
     cursor: not-allowed;

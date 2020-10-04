@@ -24,9 +24,10 @@ export const Login = () => {
             await auth.signInWithEmailAndPassword(email, password);
             history.push(ROUTES.HOME);
         } catch (error) {
-            // TODO: should be an error notification
-            console.error(error);
+            return error.message;
         }
+
+        return null;
     };
 
     const onLoginWithGoogle = async () => {
@@ -38,17 +39,30 @@ export const Login = () => {
         <section className={styles.page}>
             <Form
                 onSubmit={onSubmit}
-                render={({ handleSubmit }) => {
+                validate={(values) => {
+                    const errors: Partial<LoginCredentials> = {};
+
+                    if (!values.email) {
+                        errors.email = "Please enter an email";
+                    }
+                    if (!values.password) {
+                        errors.password = "Please enter a password";
+                    }
+
+                    return errors;
+                }}
+                render={({ handleSubmit, submitErrors }) => {
                     return (
                         <form className={styles.form} onSubmit={handleSubmit}>
                             <WithLabel label="Email" className={styles.row}>
                                 <Field
                                     name="email"
-                                    render={({ input }) => (
+                                    render={({ input, meta }) => (
                                         <FormInput
                                             type="email"
                                             value={input.value}
                                             onChange={input.onChange}
+                                            error={meta.touched && meta.error}
                                             placeholder="Input your email"
                                         />
                                     )}
@@ -57,16 +71,18 @@ export const Login = () => {
                             <WithLabel label="Password" className={styles.row}>
                                 <Field
                                     name="password"
-                                    render={({ input }) => (
+                                    render={({ input, meta }) => (
                                         <FormInput
                                             value={input.value}
                                             onChange={input.onChange}
                                             type="password"
+                                            error={meta.touched && meta.error}
                                             placeholder="Input your password"
                                         />
                                     )}
                                 />
                             </WithLabel>
+                            <p className={styles.error}>{submitErrors}</p>
                             <Button type={BUTTON_TYPE.SUBMIT}>Login</Button>
                         </form>
                     );

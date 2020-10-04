@@ -39,3 +39,8 @@
 .link {
     margin-left: 10px;
 }
+
+.error {
+    color: var(--error);
+    font-size: 18px;
+}

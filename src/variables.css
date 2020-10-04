@@ -14,6 +14,8 @@
     --placeholder: #b4b4b4;
     --focus: 0 0 4px 0 var(--accentColor2Darker);
 
+    --error: #a10101;
+
     /* textColors */
     --textLight: #ffffff;
     --textDark: #000000;

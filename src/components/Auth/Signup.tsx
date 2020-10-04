@@ -36,9 +36,10 @@ export const Signup = () => {
                 history.push(ROUTES.HOME);
             }
         } catch (error) {
-            // TODO: should be an error notification
-            console.error(error);
+            return error.message;
         }
+
+        return null;
     };
 
     const onLoginWithGoogle = async () => {
@@ -50,16 +51,32 @@ export const Signup = () => {
         <section className={styles.page}>
             <Form
                 onSubmit={onSubmit}
-                render={({ handleSubmit }) => {
+                validate={(values) => {
+                    const errors: Partial<NewUserCredentials> = {};
+
+                    if (!values.email) {
+                        errors.email = "Please enter an email";
+                    }
+                    if (!values.password) {
+                        errors.password = "Please enter a password";
+                    }
+                    if (!values.username) {
+                        errors.password = "Please enter a username";
+                    }
+
+                    return errors;
+                }}
+                render={({ handleSubmit, submitErrors }) => {
                     return (
                         <form className={styles.form} onSubmit={handleSubmit}>
                             <WithLabel className={styles.row} label="Name">
                                 <Field
                                     name="username"
-                                    render={({ input }) => (
+                                    render={({ input, meta }) => (
                                         <FormInput
                                             value={input.value}
                                             onChange={input.onChange}
+                                            error={meta.touched && meta.error}
                                             placeholder="Input your name"
                                         />
                                     )}
@@ -68,10 +85,11 @@ export const Signup = () => {
                             <WithLabel className={styles.row} label="Email">
                                 <Field
                                     name="email"
-                                    render={({ input }) => (
+                                    render={({ input, meta }) => (
                                         <FormInput
                                             value={input.value}
                                             onChange={input.onChange}
+                                            error={meta.touched && meta.error}
                                             type="email"
                                             placeholder="Input your email"
                                         />
@@ -81,16 +99,18 @@ export const Signup = () => {
                             <WithLabel label="Password" className={styles.row}>
                                 <Field
                                     name="password"
-                                    render={({ input }) => (
+                                    render={({ input, meta }) => (
                                         <FormInput
                                             value={input.value}
                                             onChange={input.onChange}
+                                            error={meta.touched && meta.error}
                                             type="password"
                                             placeholder="Input your password"
                                         />
                                     )}
                                 />
                             </WithLabel>
+                            <p className={styles.error}>{submitErrors}</p>
                             <Button
                                 className={styles.button}
                                 type={BUTTON_TYPE.SUBMIT}
