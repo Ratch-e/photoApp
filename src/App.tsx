@@ -5,7 +5,9 @@ import { Header } from "./components/Header/Header";
 import { Home } from "./components/Home/Home";
 import { ROUTES } from "./constants";
 import { UserProvider } from "./components/Auth/context/UserProvider";
-import { Auth } from "./components/Auth/Auth";
+import { Login } from "./components/Auth/Login";
+import { PasswordReset } from "./components/Auth/PasswordReset";
+import { Signup } from "./components/Auth/Signup";
 
 export function App() {
     return (
@@ -13,7 +15,15 @@ export function App() {
             <UserProvider>
                 <Header />
                 <Switch>
-                    <Auth />
+                    <Route path={ROUTES.LOGIN}>
+                        <Login />
+                    </Route>
+                    <Route path={ROUTES.SIGNUP}>
+                        <Signup />
+                    </Route>
+                    <Route path={ROUTES.PASSWORD_RESET}>
+                        <PasswordReset />
+                    </Route>
                     <Route path={ROUTES.HOME}>
                         <Home />
                     </Route>
