@@ -82,21 +82,31 @@ export const Login = () => {
                                     )}
                                 />
                             </WithLabel>
-                            <p className={styles.error}>{submitErrors}</p>
+                            {submitErrors && (
+                                <p className={styles.error}>{submitErrors}</p>
+                            )}
                             <Button type={BUTTON_TYPE.SUBMIT}>Login</Button>
                         </form>
                     );
                 }}
             />
-            <h3 className={styles.section}>Or</h3>
+            <p className={styles.section}>OR</p>
             <Button onClick={onLoginWithGoogle}>
                 Login with your Google account
             </Button>
-            <div className={styles.section}>
-                Don`t have an account yet?
-                <Link className={styles.link} to={ROUTES.SIGNUP}>
-                    Signup
-                </Link>
+            <div className={styles.additionalOptions}>
+                <div className={styles.section}>
+                    Don`t have an account yet?
+                    <Link className={styles.link} to={ROUTES.SIGNUP}>
+                        You can create it here!
+                    </Link>
+                </div>
+                <div className={styles.section}>
+                    Forgot your password?
+                    <Link className={styles.link} to={ROUTES.PASSWORD_RESET}>
+                        Reset it here
+                    </Link>
+                </div>
             </div>
         </section>
     );

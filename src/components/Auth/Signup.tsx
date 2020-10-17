@@ -110,7 +110,9 @@ export const Signup = () => {
                                     )}
                                 />
                             </WithLabel>
-                            <p className={styles.error}>{submitErrors}</p>
+                            {submitErrors && (
+                                <p className={styles.error}>{submitErrors}</p>
+                            )}
                             <Button
                                 className={styles.button}
                                 type={BUTTON_TYPE.SUBMIT}

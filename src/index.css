@@ -35,6 +35,14 @@
 body {
     margin: 0;
     font-family: "NotoSans", "Helvetica Neue", sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(
+        45deg,
+        #dfdfdd,
+        #eeeeec 40%,
+        #eeeeec 60%,
+        #e9e9e7 100%
+    );
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
