@@ -2,7 +2,7 @@ import * as React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Header } from "./components/Header/Header";
-import { Home } from "./components/Home/Home";
+import { Gallery } from "./components/Gallery/Gallery";
 import { ROUTES } from "./constants";
 import { UserProvider } from "./components/Auth/context/UserProvider";
 import { Login } from "./components/Auth/Login";
@@ -25,7 +25,7 @@ export function App() {
                         <PasswordReset />
                     </Route>
                     <Route path={ROUTES.HOME}>
-                        <Home />
+                        <Gallery />
                     </Route>
                 </Switch>
             </UserProvider>
